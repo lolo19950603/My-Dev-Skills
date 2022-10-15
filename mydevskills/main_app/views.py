@@ -3,7 +3,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from .models import Skill
 from django.views.generic import ListView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 # Create your views here.
 def signup(request):
@@ -41,3 +41,10 @@ class SkillCreate(CreateView):
     # Let the CreateView do its job as usual
     return super().form_valid(form)
 
+class SkillUpdate(UpdateView):
+  model = Skill
+  fields = ['description', 'skill_level']
+
+class SkillDelete(DeleteView):
+  model = Skill
+  success_url = '/skills/'

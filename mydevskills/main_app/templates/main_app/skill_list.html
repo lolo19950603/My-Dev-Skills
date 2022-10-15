@@ -10,8 +10,8 @@
             <p>level: {{ skill.skill_level }}</p>
         </div>
         <div class="card-action">
-            <a href="">Edit</a>
-            <a href="">Delete</a>
+            <a href="{% url 'skills_update' skill.id %}">Edit</a>
+            <a href="{% url 'skills_delete' skill.id %}">Delete</a>
         </div>
     </div>
   </a>
