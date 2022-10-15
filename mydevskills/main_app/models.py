@@ -14,13 +14,11 @@ SKILLS = (
 # Create your models here.
 class Skill(models.Model):
     description = models.TextField(max_length=250)
-    skill_level = models.IntegerField(
-        default=1,
-        validators=[
-            MaxValueValidator(5),
-            MinValueValidator(1)
-        ]
-    )
+    skill_level = models.CharField(
+        max_length=1,
+	    choices=SKILLS,
+	    default=SKILLS[0][0]
+  )
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
