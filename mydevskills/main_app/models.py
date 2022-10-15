@@ -25,4 +25,4 @@ class Skill(models.Model):
         return self.description
 
     def get_absolute_url(self):
-        return reverse('detail', kwargs={'skill_id': self.id})
+        return reverse('skills_index')
