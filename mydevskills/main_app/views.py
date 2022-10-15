@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from .models import Skill
+from django.views.generic import ListView
+from django.views.generic.edit import CreateView
 
 # Create your views here.
 def signup(request):
@@ -24,4 +27,11 @@ def signup(request):
 
 def home(request):
     return render(request, 'home.html')
+
+class SkillList(ListView):
+  model = Skill
+
+class SkillCreate(CreateView):
+  model = Skill
+  fields = '__all__'
 
