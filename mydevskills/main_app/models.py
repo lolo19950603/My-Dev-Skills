@@ -25,7 +25,7 @@ class Skill(models.Model):
         return self.description
 
     def get_absolute_url(self):
-        return reverse('skills_index')
+        return reverse('skills_detail', kwargs={'pk': self.id})
 
     def get_skill_display(self):
         return SKILLS[self.skill_level-1][1]
