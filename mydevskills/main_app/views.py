@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from .models import Skill
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 # Create your views here.
@@ -17,7 +17,7 @@ def signup(request):
       user = form.save()
       # This is how we log a user in via code
       login(request, user)
-      return redirect('index')
+      return redirect('skills_index')
     else:
       error_message = 'Invalid sign up - try again'
   # A bad POST or a GET request, so render signup.html with an empty form
@@ -29,6 +29,12 @@ def home(request):
     return render(request, 'home.html')
 
 class SkillList(ListView):
+  model = Skill
+  
+  def get_queryset(self):
+        return Skill.objects.filter(user=self.request.user)
+
+class SkillDetail(DetailView):
   model = Skill
 
 class SkillCreate(CreateView):

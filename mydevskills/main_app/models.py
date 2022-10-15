@@ -26,3 +26,6 @@ class Skill(models.Model):
 
     def get_absolute_url(self):
         return reverse('skills_index')
+
+    def get_skill_display(self):
+        return SKILLS[self.skill_level-1][1]
