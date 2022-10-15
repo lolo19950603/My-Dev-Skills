@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'mydevskills.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'catcollector',
+        'NAME': 'mydevskills',
         'USER': 'postgres',
         'PASSWORD': 'a12956789',
     }
