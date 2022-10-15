@@ -4,17 +4,17 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from django.contrib.auth.models import User
 
 SKILLS = (
-    ('1', 'Fundamental Awareness'),
-    ('2', 'Novice'),
-    ('3', 'Intermediate'),
-    ('4', 'Advanced'),
-    ('5', 'Expert')
+    (1, '1 - Fundamental Awareness'),
+    (2, '2 - Novice'),
+    (3, '3 - Intermediate'),
+    (4, '4 - Advanced'),
+    (5, '5 - Expert')
 )
 
 # Create your models here.
 class Skill(models.Model):
     description = models.TextField(max_length=250)
-    skill_level = models.CharField(
+    skill_level = models.IntegerField(
         max_length=1,
 	    choices=SKILLS,
 	    default=SKILLS[0][0]
