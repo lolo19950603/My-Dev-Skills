@@ -1,12 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Skill Details</h1>
+<h1>{{ skill.description }}</h1>
 
 <div class="card">
   <div class="card-content">
-    <span class="card-title">{{ skill.description }}</span>
-    <p>level: {{ skill.get_skill_display }}</p>
+    <span class="card-title">level: {{ skill.get_skill_display  }}</span>
 </div>
 
 {% endblock %}
